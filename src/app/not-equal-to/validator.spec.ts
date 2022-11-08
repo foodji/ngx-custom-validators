@@ -1,14 +1,14 @@
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 import { notEqualTo } from './validator';
 
 describe('NotEqualTo', () => {
-  let notEqualControl: FormControl;
-  let control: FormControl;
+  let notEqualControl: UntypedFormControl;
+  let control: UntypedFormControl;
 
   beforeEach(() => {
-    notEqualControl = new FormControl();
-    control = new FormControl();
+    notEqualControl = new UntypedFormControl();
+    control = new UntypedFormControl();
   });
 
   it('all control is empty should valid', () => {

@@ -1,11 +1,18 @@
-import { AbstractControl, FormControl, NgModel, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import {
+    AbstractControl,
+    NgModel,
+    UntypedFormControl,
+    ValidationErrors,
+    ValidatorFn,
+    Validators
+} from '@angular/forms';
 import { isDate, isPresent, parseDate } from '../util/lang';
 
 export const minDate = (minInput: any): ValidatorFn => {
   let value;
   let subscribe = false;
   let minValue = minInput;
-  const isForm = minInput instanceof FormControl || minInput instanceof NgModel;
+  const isForm = minInput instanceof UntypedFormControl || minInput instanceof NgModel;
   return (control: AbstractControl): ValidationErrors => {
 
     if (!subscribe && isForm) {

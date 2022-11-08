@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../app/custom-forms.module';
 
 @Component({
@@ -8,17 +8,17 @@ import { CustomValidators } from '../app/custom-forms.module';
   styleUrls: ['dev.component.scss']
 })
 export class DevComponent implements OnInit {
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public num = 5;
   public arrayLengthTest = ['ok'];
   public dateTest = { year: 2017, month: 10, day: 12 };
   public objProperty = { id: 1 };
 
   ngOnInit() {
-    const password = new FormControl('', Validators.required);
-    const certainPassword = new FormControl('', CustomValidators.notEqualTo(password));
+    const password = new UntypedFormControl('', Validators.required);
+    const certainPassword = new UntypedFormControl('', CustomValidators.notEqualTo(password));
 
-    this.form = new FormGroup({
+    this.form = new UntypedFormGroup({
       password,
       certainPassword
     });

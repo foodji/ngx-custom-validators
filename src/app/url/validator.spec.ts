@@ -1,9 +1,9 @@
-import { FormControl, ValidatorFn } from '@angular/forms';
+import { UntypedFormControl, ValidatorFn } from '@angular/forms';
 
 import { url } from './validator';
 
 describe('Url', () => {
-  let control: FormControl;
+  let control: UntypedFormControl;
   let validator: ValidatorFn;
 
   beforeEach(() => {
@@ -11,17 +11,17 @@ describe('Url', () => {
   });
 
   it('"http://www.test.com" should equal to "null"', () => {
-    control = new FormControl('http://www.test.com');
+    control = new UntypedFormControl('http://www.test.com');
     expect(validator(control)).toBeNull();
   });
 
   it('"https://www.test.com" should equal to "null"', () => {
-    control = new FormControl('https://www.test.com');
+    control = new UntypedFormControl('https://www.test.com');
     expect(validator(control)).toBeNull();
   });
 
   it('"23a" should equal to "{url: true}"', () => {
-    control = new FormControl('23a');
+    control = new UntypedFormControl('23a');
     expect(validator(control)).toEqual({url: true});
   });
 });

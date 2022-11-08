@@ -1,5 +1,5 @@
-import { Directive, Input, forwardRef, OnInit } from '@angular/core';
-import { NG_VALIDATORS, Validator, FormControl, ValidatorFn, AbstractControl } from '@angular/forms';
+import { Directive, forwardRef, Input, OnInit } from '@angular/core';
+import { AbstractControl, NG_VALIDATORS, UntypedFormControl, Validator, ValidatorFn } from '@angular/forms';
 
 import { equalTo } from './validator';
 
@@ -14,7 +14,7 @@ const EQUAL_TO_VALIDATOR: any = {
   providers: [EQUAL_TO_VALIDATOR]
 })
 export class EqualToValidator implements Validator, OnInit {
-  @Input() equalTo: FormControl;
+  @Input() equalTo: UntypedFormControl;
 
   private validator: ValidatorFn;
 

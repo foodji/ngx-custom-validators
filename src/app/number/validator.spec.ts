@@ -1,27 +1,27 @@
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 import { number } from './validator';
 
 describe('Number', () => {
-  let control: FormControl;
+  let control: UntypedFormControl;
 
   it('"23" should equal to "null"', () => {
-    control = new FormControl('23');
+    control = new UntypedFormControl('23');
     expect(number(control)).toBeNull();
   });
 
   it('"23.3" should equal to "null"', () => {
-    control = new FormControl('23.3');
+    control = new UntypedFormControl('23.3');
     expect(number(control)).toBeNull();
   });
 
   it('"23a" should equal to "{number: true}"', () => {
-    control = new FormControl('23a');
+    control = new UntypedFormControl('23a');
     expect(number(control)).toEqual({number: true});
   });
 
   it('"23." should equal to "{number: true}"', () => {
-    control = new FormControl('23.');
+    control = new UntypedFormControl('23.');
     expect(number(control)).toEqual({number: true});
   });
 });
